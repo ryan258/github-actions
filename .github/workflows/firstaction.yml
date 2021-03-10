@@ -18,7 +18,7 @@ jobs:
   
     runs-on: ubuntu-latest
     env:
-      name: Ryan
+      name: Ryan, Manny, and the Cow
     
     steps:
     - name: Run a one-line script
