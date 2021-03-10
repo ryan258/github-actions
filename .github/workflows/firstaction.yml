@@ -28,7 +28,7 @@ jobs:
   
     runs-on: ubuntu-latest
     if: github.event_name == "pull_request"
-    nneds: build
+    needs: build
     steps:
     - name: Run a spooky script
       run: echo Hello $name, pull request time!!! 👻,
