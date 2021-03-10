@@ -27,7 +27,7 @@ jobs:
   pull_request_only:
   
     runs-on: ubuntu-latest
-    if: github.event_name == "pull_request"
+    if: github.event_name == 'pull_request'
     needs: build
     steps:
     - name: Run a spooky script
