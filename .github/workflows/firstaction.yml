@@ -9,13 +9,26 @@ on:
       - master
   pull_request:
     types: [closed]
+    
+env:
+  name: Ry
 
 jobs:
   build:
   
     runs-on: ubuntu-latest
+    env:
+      name: Ryan
     
     steps:
-    - uses: actions/checkout@v1
     - name: Run a one-line script
-      run: echo Hello, World! Time to eat! 🍕
+      run: echo Hello, $name! Time to eat! 🍕
+
+  pull_request_only:
+  
+    runs-on: ubuntu-latest
+    if: github.event_name == "pull_request"
+    nneds: build
+    steps:
+    - name: Run a spooky script
+      run: echo Hello $name, pull request time!!! 👻,
