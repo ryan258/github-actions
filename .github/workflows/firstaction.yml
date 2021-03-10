@@ -22,7 +22,17 @@ jobs:
     
     steps:
     - name: Run a one-line script
-      run: echo Hello, $name! Time to eat! 🍕
+      run: |
+        echo Hello, $name! Time to eat! 🍕
+        echo Actor: ${{ github.actor }}
+        echo Committed by: ${{ github.event.commits[0].author.name }}
+      
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+    - env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
 
   pull_request_only:
   
